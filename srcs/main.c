@@ -9,7 +9,7 @@ int		main()
 	//ft_printf("---%5d----\n", number); 
 	
 
-	ft_printf("%-010c\n", 'l');
+	ft_printf("fdsz,fmds;lfsd%10c\n", 'l');
 //	printf("%s\n", "c'est le s encule");
 
 	return (0);

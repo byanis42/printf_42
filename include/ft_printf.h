@@ -34,7 +34,7 @@ char		*ft_width_right(t_struct *settings, char *str);
 char		*ft_width_left(t_struct *settings, char *str);
 
 
-int		ft_retr(int ret, int nb_arg, ...);
+int		ft_ret(int ret, int nb_arg, ...);
 
 
 #endif

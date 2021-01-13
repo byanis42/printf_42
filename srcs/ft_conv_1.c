@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:15:35 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/13 03:34:33 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/13 04:10:21 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int			ft_char_pf(va_list args, t_struct *settings)
 	return (ft_ret(settings->width + 1, 2, tmp, settings));
 }
 
-int			ft_str_pf(va_list args, t_struct *settings)
+/*int			ft_str_pf(va_list args, t_struct *settings)
 {
 	char	*str;
 	char	*tmp;
@@ -67,4 +67,4 @@ int			ft_str_pf(va_list args, t_struct *settings)
 	}
 	ft_putstr_fd(tmp, 1);
 	return (ft_ret(ft_strlen(tmp), 3, str, tmp, settings));
-}
+}*/
