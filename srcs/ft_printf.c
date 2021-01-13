@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 16:38:13 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/13 03:39:52 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/13 03:54:07 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void		print_setting(t_struct *settings) // Temp
 	printf("precision : %d\n", settings->precision);
 	printf("fill : '%c'\n", settings->fill);
 }
-
+//comment
 int		ft_printf(const char *str, ...)
 {
 	va_list		args;
