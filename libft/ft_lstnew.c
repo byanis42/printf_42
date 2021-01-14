@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 10:02:48 by thgermai          #+#    #+#             */
-/*   Updated: 2021/01/13 04:18:56 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/13 16:39:24 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	if (!(new = malloc(sizeof(t_list))))
+	new = malloc(sizeof(t_list));
+	if (!new)	
 		return (NULL);
 	new->content = content;
 	new->next = NULL;

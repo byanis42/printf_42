@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:33:39 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/12 22:19:58 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/14 06:37:55 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static	int		ft_get_conv(char c)
 			free(charset);
 			return(i);
 		}
-		printf("%c\n", charset[i]);
 	}
 	free(charset);
 	return (-1);
@@ -56,7 +55,6 @@ static void		ft_start_parsing(const char *str, t_struct *settings, va_list args)
 			++i;
 			if (str[i] == '0' && --i) // tester avec && i--; dans la condition 
 				settings->precision = 0;
-			//	i--; (potentiellement pas de brackets mais verifier si probleme et remettre bracket et decrementation dans la cdt)
 			if (str[i] == '*' && !settings->width) // peut-etre enlever !set..width
 				settings->precision = va_arg(args, int);
 			else 
@@ -96,11 +94,12 @@ t_struct		*ft_parse(const char *str, va_list args)
 
 	settings = malloc(sizeof(t_struct) * 1);
 	if (!settings)
-		return NULL; // handle error;
+		return (NULL); // handle error;
 
 	ft_init_settings(settings);
 	ft_start_parsing(str ,settings, args);
 	verify_settings(settings);
+
 	
 	return (settings);
 }

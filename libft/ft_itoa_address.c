@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 10:49:36 by thgermai          #+#    #+#             */
-/*   Updated: 2021/01/13 04:18:09 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/13 16:37:05 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char			*ft_itoa_address(unsigned long long int n)
 	char		*base;
 
 	base = ft_strdup("0123456789abcdef");
-	if (!(str = (char *)ft_calloc(sizeof(char), 2)))
+	str = (char *)ft_calloc(sizeof(char), 2);
+	if (!str)	
 		return (NULL);
 	else if (n >= 16)
 	{

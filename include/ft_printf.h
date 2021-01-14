@@ -3,6 +3,7 @@
 
 # define FLAGS "-0.*"
 # define CONV_FORMAT "cspdiuxX%"
+# define HEXA "0123456789abcdef"
 # define LEFT 1
 # define RIGHT 0
 
@@ -29,9 +30,16 @@ t_struct		*ft_parse(const char *str, va_list args);
 
 int			ft_str_pf(va_list args, t_struct *settings);
 int			ft_char_pf(va_list args, t_struct *settings);
+int			ft_decimal_pf(va_list args, t_struct *settings);
+int			ft_integer_pf(va_list args, t_struct *settings);
+int			ft_address_pf(va_list args, t_struct *settings);
+int			ft_unsigned_pf(va_list args, t_struct *settings);
 
 char		*ft_width_right(t_struct *settings, char *str);
 char		*ft_width_left(t_struct *settings, char *str);
+char		*ft_width_nb(t_struct *settings, char *str);
+char		*ft_precision(char *str, t_struct *settings);
+char		*ft_precision_nb(char *str, t_struct *settings);
 
 
 int		ft_ret(int ret, int nb_arg, ...);

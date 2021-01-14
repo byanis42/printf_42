@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 16:38:13 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/13 03:54:07 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/14 23:01:58 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void		print_setting(t_struct *settings) // Temp
 	printf("precision : %d\n", settings->precision);
 	printf("fill : '%c'\n", settings->fill);
 }
-//comment
+
 int		ft_printf(const char *str, ...)
 {
 	va_list		args;
@@ -46,8 +46,13 @@ int		ft_printf(const char *str, ...)
 	str = str + ret;
 	
 	settings = ft_parse(str, args);
-	print_setting(settings);
-	int z = ft_char_pf(args, settings);
+	//print_setting(settings);
+	//ft_char_pf(args, settings);
+	//ft_str_pf(args, settings);
+	//ft_decimal_pf(args, settings);
+	//ft_address_pf(args, settings);
+	ft_unsigned_pf(args, settings);
+	//free(settings);
 	
 	va_end(args);
 	return (0);
