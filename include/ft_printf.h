@@ -34,6 +34,9 @@ int			ft_decimal_pf(va_list args, t_struct *settings);
 int			ft_integer_pf(va_list args, t_struct *settings);
 int			ft_address_pf(va_list args, t_struct *settings);
 int			ft_unsigned_pf(va_list args, t_struct *settings);
+int			ft_hexadecimal_pf(va_list args, t_struct *settings);
+int			ft_hexadecimal_upper_pf(va_list args, t_struct *settings);
+int			ft_percent_pf(va_list args, t_struct *settings);
 
 char		*ft_width_right(t_struct *settings, char *str);
 char		*ft_width_left(t_struct *settings, char *str);

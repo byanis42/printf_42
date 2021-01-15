@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:15:35 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/14 22:53:26 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/15 05:22:40 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int			ft_decimal_pf(va_list args, t_struct *settings)
 	if (settings->precision != -1)
 	{
 		nb = ft_precision_nb(nb, settings);
-		//settings->fill = ' ';              // possiblement a remettre -- regarder comportement avec .014
+		settings->fill = ' ';              // possiblement a remettre -- regarder comportement avec .014
 	}
 	nb = ft_width_nb(settings, nb);
 	ft_putstr_fd(nb, 1);

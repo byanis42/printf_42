@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:33:39 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/14 06:37:55 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/15 02:43:57 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ t_struct		*ft_parse(const char *str, va_list args)
 	ft_init_settings(settings);
 	ft_start_parsing(str ,settings, args);
 	verify_settings(settings);
-
 	
 	return (settings);
 }
