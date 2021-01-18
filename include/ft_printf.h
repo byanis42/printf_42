@@ -25,8 +25,11 @@ typedef	struct	s_struct
 
 int				ft_printf(const char *str, ...);
 
+int				ft_print_str(const char *str, int i);
 int				print_till_next_arg(char *str);
+int				ft_get_index(const char *str);
 t_struct		*ft_parse(const char *str, va_list args);
+int				ft_define_type(char c);
 
 int			ft_str_pf(va_list args, t_struct *settings);
 int			ft_char_pf(va_list args, t_struct *settings);

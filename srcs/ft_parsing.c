@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:33:39 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/15 02:43:57 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/18 22:31:08 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static	int		ft_get_conv(char c)
 
 	i = -1;
 	charset = ft_strdup(CONV_FORMAT);
-	//printf("char = %c\n", c);
 	while(charset[++i])
 	{	
 		if (charset[i] == c)
@@ -55,7 +54,7 @@ static void		ft_start_parsing(const char *str, t_struct *settings, va_list args)
 			++i;
 			if (str[i] == '0' && --i) // tester avec && i--; dans la condition 
 				settings->precision = 0;
-			if (str[i] == '*' && !settings->width) // peut-etre enlever !set..width
+			if ((str[i] == '*') && !settings->width) // peut-etre enlever !set..width
 				settings->precision = va_arg(args, int);
 			else 
 				settings->precision = ft_atoi(str + i);
@@ -63,7 +62,11 @@ static void		ft_start_parsing(const char *str, t_struct *settings, va_list args)
 				i++;
 		}
 		else if (str[i] == '*' && !settings->width)
-			settings->width = va_arg(args, int);
+			{
+				settings->width = va_arg(args, int);
+				if (settings->width < 0)
+					settings->width *= -1;
+			}
 		else if (str[i] == '0')
 			settings->fill = '0';
 		else if (ft_isdigit(str[i]))
@@ -84,6 +87,10 @@ static void		ft_start_parsing(const char *str, t_struct *settings, va_list args)
 {
 	if (settings->fill == '0' && settings->justif == LEFT)
 		settings->fill = ' ';
+	if (settings->precision < 0)
+		settings->precision = -1;
+	if (settings->fill == '0' && settings->justif == LEFT)
+		(settings)->fill = ' ';
 	if (settings->convert == -1)
 		; // handle error	
 }
