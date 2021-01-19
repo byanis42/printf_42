@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 16:38:13 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/17 00:55:49 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/19 03:20:56 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int				print_till_next_arg(char *str)
 	return (i);
 }
 
-/*static void		print_setting(t_struct *settings) // Temp
-{
-	printf("width : %d\n", settings->width);
-	printf("convert : %d\n", settings->convert);
-	printf("justif : %d\n", settings->justif);
-	printf("precision : %d\n", settings->precision);
-	printf("fill : '%c'\n", settings->fill);
-}*/
+// void		print_setting(t_struct *settings) // Temp
+// {
+// 	printf("width : %d\n", settings->width);
+// 	printf("convert : %d\n", settings->convert);
+// 	printf("justif : %d\n", settings->justif);
+// 	printf("precision : %d\n", settings->precision);
+// 	printf("fill : '%c'\n", settings->fill);
+// }
 
 int				ft_func_array(va_list args, t_struct *settings)
 {
@@ -82,7 +82,6 @@ int				ft_print_str(const char *str, int i)
 int				ft_printf(const char *str, ...)
 {
 	va_list		args;
-	//t_struct 	*settings;
 	int			ret;
 	int			i;
 
@@ -111,7 +110,7 @@ int				ft_printf(const char *str, ...)
 	str = str + ret;
 	
 	settings = ft_parse(str, args);
-	//print_setting(settings);
+	print_setting(settings);
 	//ft_char_pf(args, settings);
 	//ft_str_pf(args, settings);
 	//ft_decimal_pf(args, settings);
@@ -120,7 +119,6 @@ int				ft_printf(const char *str, ...)
 	//free(settings);
 	*/
 
-
 	va_end(args);
-	return (ft_exit(i, 0));
+	return (ft_ret(i, 0));
 }

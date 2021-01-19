@@ -25,6 +25,8 @@ typedef	struct	s_struct
 
 int				ft_printf(const char *str, ...);
 
+// void			print_setting(t_struct *settings); // Temp
+
 int				ft_print_str(const char *str, int i);
 int				print_till_next_arg(char *str);
 int				ft_get_index(const char *str);
