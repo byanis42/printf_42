@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:33:39 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/19 03:24:44 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/19 23:52:49 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,17 @@ static void		ft_start_parsing(const char *str, t_struct *settings, va_list args)
 		else if (str[i] == '.')
 		{
 			++i;
-			if ((str[i] == '0' || ft_get_conv(str[i]) != -1) && --i) // tester avec && i--; dans la condition 
+			if (ft_get_conv(str[i]) != -1)
+			{
 				settings->precision = 0;
-			if (str[i] == '*') //&& !settings->width) // peut-etre enlever !set..width
+				--i;
+			}
+			else if (str[i] == '*') //&& !settings->width) // peut-etre enlever !set..width
 				settings->precision = va_arg(args, int);
 			else 
 				settings->precision = ft_atoi(str + i);
-			while (ft_isdigit(str[i + 1] || str[i + 1]) == '*')
+			while (ft_isdigit(str[i] || str[i]) == '*')
 				i++;
-			//while (str[i] != '.' && str[i + 1] && ft_isdigit(str[i + 1]))
-				//i++;
 		}
 		else if (str[i] == '*' && !settings->width)
 				settings->width = va_arg(args, int);
@@ -80,16 +81,16 @@ static void		ft_start_parsing(const char *str, t_struct *settings, va_list args)
 		}
 	}
 }
-
+	
  static void			verify_settings(t_struct *settings)
-{
-	if (settings->precision < 0)
-		settings->precision = -1;
+{	
 	if (settings->width < 0)
 	{
 		settings->width *= -1;
 		settings->justif = LEFT;
 	}	
+	if (settings->precision < 0)
+		settings->precision = -1;
 	if (settings->fill == '0' && settings->justif == LEFT)
 		settings->fill = ' ';
 }

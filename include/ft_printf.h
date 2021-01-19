@@ -20,7 +20,6 @@ typedef	struct	s_struct
 	int		justif;
 	int		precision;
 	char	fill;
-
 }				t_struct;
 
 int				ft_printf(const char *str, ...);

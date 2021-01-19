@@ -16,7 +16,8 @@ int		main()
 
 	//printf("expected :%-.014d\n", 1242);
 	//ft_printf("\n%12u", 42424242);
-	ret = ft_printf("%.03s\n", NULL);
+	ret = ft_printf("%2.p\n", NULL);
+	printf("%.03s\n", "");
 	printf("ft_printf ret : %d\n", ret);
 //	printf("%d\n", printf("%-5.i\n", 42));
 	//printf("\n%u\n\n\n", 42424242);
