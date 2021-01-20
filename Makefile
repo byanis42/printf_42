@@ -6,7 +6,7 @@
 #    By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/15 19:28:48 by yanboudr          #+#    #+#              #
-#    Updated: 2021/01/17 00:58:13 by yanboudr         ###   ########.fr        #
+#    Updated: 2021/01/21 00:06:28 by yanboudr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ LIB_OBJS = ./libft/*.o
 INCLUDES = ./includes/ft_printf.h
 LIB = ./libft/libft.a
 CFLAGS = -Wall -Wextra -Werror -g3
-LOGFILE=$(LOGPATH) `date +'%y.%m.%d %H:%M:%S'`
 
 all : $(NAME)
 
@@ -53,10 +52,5 @@ fclean : cleanlib clean
 	@(rm -rf a.out.dSYM)
 	@(rm -f a.out)
 	@(echo "ft_printf full cleaned")
-
-git : fclean
-	git add *
-	git commit -m "$(LOGFILE)"
-	git push
 
 re : fclean all

@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:33:39 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/19 23:52:49 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/20 23:58:40 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,46 +40,72 @@ static	int		ft_get_conv(char c)
 	return (-1);
 }
 
+// static void		ft_start_parsing(const char *str, t_struct *settings, va_list args)
+// {
+// 	int		i;
+
+// 	i = 0;
+// 	while (str[++i])
+// 	{
+// 		if (str[i] == '-')
+// 			settings->justif = LEFT;
+// 		else if (str[i] == '.')
+// 		{
+// 			++i;
+// 			if (ft_get_conv(str[i]) != -1)
+// 			{
+// 				settings->precision = 0;
+// 				--i;
+// 			}
+// 			else if (str[i] == '*') //&& !settings->width) // peut-etre enlever !set..width
+// 				settings->precision = va_arg(args, int);
+// 			else 
+// 				settings->precision = ft_atoi(str + i);
+// 			while (ft_isdigit(str[i] || str[i]) == '*')
+// 				i++;
+// 		}
+// 		else if (str[i] == '*' && !settings->width)
+// 				settings->width = va_arg(args, int);
+// 		else if (str[i] == '0')
+// 			settings->fill = '0';
+// 		else if (ft_isdigit(str[i]))
+// 		{
+// 			settings->width = ft_atoi(str + i);
+// 			while (str[i + 1] && ft_isdigit(str[i + 1]))
+// 				i++;
+// 		}
+// 		else
+// 		{
+// 			settings->convert = ft_get_conv(str[i]);
+// 			break ;
+// 		}
+// 	}
+// }
+
 static void		ft_start_parsing(const char *str, t_struct *settings, va_list args)
 {
-	int		i;
-
-	i = 0;
-	while (str[++i])
+	while (ft_find_in(FLAGS, *str) || ft_isdigit(*str))
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			settings->justif = LEFT;
-		else if (str[i] == '.')
+		else if (*str == '.')
 		{
-			++i;
-			if (ft_get_conv(str[i]) != -1)
-			{
-				settings->precision = 0;
-				--i;
-			}
-			else if (str[i] == '*') //&& !settings->width) // peut-etre enlever !set..width
+			if (*(str + 1) == '*')
 				settings->precision = va_arg(args, int);
-			else 
-				settings->precision = ft_atoi(str + i);
-			while (ft_isdigit(str[i] || str[i]) == '*')
-				i++;
+			else
+				settings->precision = ft_atoi(str + 1);
+			while (ft_isdigit(*(str + 1)) || (*(str + 1)) == '*')
+				str++;
 		}
-		else if (str[i] == '*' && !settings->width)
-				settings->width = va_arg(args, int);
-		else if (str[i] == '0')
+		else if (*str == '0' && !settings->width)
 			settings->fill = '0';
-		else if (ft_isdigit(str[i]))
-		{
-			settings->width = ft_atoi(str + i);
-			while (str[i + 1] && ft_isdigit(str[i + 1]))
-				i++;
-		}
-		else
-		{
-			settings->convert = ft_get_conv(str[i]);
-			break ;
-		}
+		else if (*str == '*' && !settings->width)
+			settings->width = va_arg(args, int);
+		else if (!settings->width)
+			settings->width = ft_atoi(str);
+		str++;
 	}
+	settings->convert = ft_get_conv(*str);
 }
 	
  static void			verify_settings(t_struct *settings)
@@ -104,6 +130,9 @@ t_struct		*ft_parse(const char *str, va_list args)
 		return (NULL); // handle error;
 
 	ft_init_settings(settings);
+		if (!settings)
+			return (NULL);
+	str++;
 	ft_start_parsing(str ,settings, args);
 	verify_settings(settings);
 	// print_setting(settings);
