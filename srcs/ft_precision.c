@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 23:13:57 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/13 03:22:52 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/21 01:35:44 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char		*ft_precision(char *str, t_struct *settings)
 char		*ft_precision_nb(char *str, t_struct *settings)
 {
 	char	*tmp;
-	
+
 	tmp = NULL;
 	if (settings->precision != -1)
 	{

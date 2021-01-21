@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 16:38:13 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/19 23:31:01 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/21 01:37:56 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ const char		*ft_refresh_str(const char *str)
 
 int				print_till_next_arg(char *str)
 {
-	int i;
+	int		i;
 
 	i = -1;
 	while (str[++i])
@@ -39,21 +39,12 @@ int				print_till_next_arg(char *str)
 	return (i);
 }
 
-// void		print_setting(t_struct *settings) // Temp
-// {
-// 	printf("width : %d\n", settings->width);
-// 	printf("convert : %d\n", settings->convert);
-// 	printf("justif : %d\n", settings->justif);
-// 	printf("precision : %d\n", settings->precision);
-// 	printf("fill : '%c'\n", settings->fill);
-// }
-
 int				ft_func_array(va_list args, t_struct *settings)
 {
 	int		(*function_ptr[9])(va_list, t_struct *);
-	
+
 	if (!settings)
-		return(ft_ret(-1, 0));
+		return (ft_ret(-1, 0));
 	if (settings->convert < 0)
 		return (ft_ret(-1, 1, settings));
 	function_ptr[0] = &ft_char_pf;
@@ -66,7 +57,7 @@ int				ft_func_array(va_list args, t_struct *settings)
 	function_ptr[7] = &ft_hexadecimal_upper_pf;
 	function_ptr[8] = &ft_percent_pf;
 	return ((*function_ptr[settings->convert])(args, settings));
-}	
+}
 
 int				ft_print_str(const char *str, int i)
 {
@@ -104,21 +95,6 @@ int				ft_printf(const char *str, ...)
 		}
 		str = ft_refresh_str(str);
 	}
-	
-	/*
-	ret = print_till_next_arg((char *)str);
-	str = str + ret;
-	
-	settings = ft_parse(str, args);
-	print_setting(settings);
-	//ft_char_pf(args, settings);
-	//ft_str_pf(args, settings);
-	//ft_decimal_pf(args, settings);
-	//ft_address_pf(args, settings);
-	ft_unsigned_pf(args, settings);
-	//free(settings);
-	*/
-
 	va_end(args);
 	return (ft_ret(i, 0));
 }

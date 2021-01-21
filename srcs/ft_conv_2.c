@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 22:45:30 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/19 03:14:42 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/21 01:28:49 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			ft_unsigned_pf(va_list args, t_struct *settings)
 {
 	unsigned int	i;
 	char			*nb;
-	
+
 	i = va_arg(args, unsigned int);
 	nb = ft_itoa_unsigned(i);
 	if (!i && !settings->precision)
@@ -33,7 +33,7 @@ int			ft_unsigned_pf(va_list args, t_struct *settings)
 	return (ft_ret(ft_strlen(nb), 2, nb, settings));
 }
 
-int				ft_hexadecimal_pf(va_list args, t_struct *settings)
+int			ft_hexadecimal_pf(va_list args, t_struct *settings)
 {
 	int		i;
 	char	*nb;
@@ -60,7 +60,7 @@ int				ft_hexadecimal_pf(va_list args, t_struct *settings)
 	return (ft_ret(ft_strlen(nb), 2, nb, settings));
 }
 
-int				ft_hexadecimal_upper_pf(va_list args, t_struct *settings)
+int			ft_hexadecimal_upper_pf(va_list args, t_struct *settings)
 {
 	int		i;
 	char	*nb;
@@ -87,7 +87,7 @@ int				ft_hexadecimal_upper_pf(va_list args, t_struct *settings)
 	return (ft_ret(ft_strlen(nb), 2, nb, settings));
 }
 
-int				ft_percent_pf(va_list args, t_struct *settings)
+int			ft_percent_pf(va_list args, t_struct *settings)
 {
 	char *tmp;
 

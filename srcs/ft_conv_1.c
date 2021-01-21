@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:15:35 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/19 21:15:01 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/21 05:01:55 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,15 @@ int			ft_char_pf(va_list args, t_struct *settings)
 		if (settings->justif == LEFT)
 		{
 			tmp = ft_width_left(settings, tmp);
-			ft_putchar_fd(c, 1);
-			ft_putstr_fd(tmp, 1);
+			ft_printchar_printstr(c, 1, tmp, 1);
 		}
 		else
 		{
 			tmp = ft_width_right(settings, tmp);
-			ft_putstr_fd(tmp, 1);
-			ft_putchar_fd(c, 1);
+			ft_printstr_printchar(c, 1, tmp, 1);
 		}
 	}
-	else 
+	else
 		ft_putchar_fd(c, 1);
 	return (ft_ret(settings->width + 1, 2, tmp, settings));
 }
@@ -50,7 +48,7 @@ int			ft_str_pf(va_list args, t_struct *settings)
 	str = va_arg(args, char *);
 	if (!str)
 		str = ft_strdup("(null)");
-	else 
+	else
 		str = ft_strdup(str);
 	if (settings->precision != -1 && settings->precision < (int)ft_strlen(str))
 		tmp = ft_substr(str, 0, settings->precision);
@@ -69,7 +67,7 @@ int			ft_str_pf(va_list args, t_struct *settings)
 	return (ft_ret(ft_strlen(tmp), 3, str, tmp, settings));
 }
 
-int				ft_address_pf(va_list args, t_struct *settings)
+int			ft_address_pf(va_list args, t_struct *settings)
 {
 	void	*ptr;
 	char	*result;
@@ -90,30 +88,30 @@ int				ft_address_pf(va_list args, t_struct *settings)
 	result = ft_width_nb(settings, result);
 	ft_putstr_fd(result, 1);
 	return (ft_ret(ft_strlen(result), 2, result, settings));
-} 
+}
 
 int			ft_decimal_pf(va_list args, t_struct *settings)
 {
 	int		i;
 	char	*nb;
-	
+
 	i = va_arg(args, int);
 	nb = ft_itoa(i);
-	 if (!i && !settings->precision)
+	if (!i && !settings->precision)
 		nb = ft_strdup("");
 	else if (!i)
 		nb = ft_itoa(0);
 	if (settings->precision != -1)
 	{
 		nb = ft_precision_nb(nb, settings);
-		settings->fill = ' ';              // possiblement a remettre -- regarder comportement avec .014
+		settings->fill = ' ';
 	}
 	nb = ft_width_nb(settings, nb);
 	ft_putstr_fd(nb, 1);
 	return (ft_ret(ft_strlen(nb), 2, nb, settings));
 }
 
-int				ft_integer_pf(va_list args, t_struct *settings)
+int			ft_integer_pf(va_list args, t_struct *settings)
 {
 	int		i;
 	char	*nb;

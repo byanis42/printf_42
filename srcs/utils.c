@@ -6,7 +6,7 @@
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 00:26:38 by yanboudr          #+#    #+#             */
-/*   Updated: 2021/01/19 03:21:57 by yanboudr         ###   ########.fr       */
+/*   Updated: 2021/01/21 05:00:01 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_ret(int ret, int nb_arg, ...)
 
 	i = 0;
 	va_start(args, nb_arg);
-	while(i < nb_arg)
+	while (i < nb_arg)
 	{
 		tmp = va_arg(args, void *);
 		ft_memdel(&tmp);
@@ -30,9 +30,9 @@ int		ft_ret(int ret, int nb_arg, ...)
 	return (ret);
 }
 
-int			ft_get_index(const char *str)
+int		ft_get_index(const char *str)
 {
-	int		i;
+	int i;
 
 	i = 0;
 	while (*str)
@@ -45,7 +45,7 @@ int			ft_get_index(const char *str)
 	return (i);
 }
 
-int			ft_define_type(char c)
+int		ft_define_type(char c)
 {
 	int		i;
 	char	*value;
@@ -57,4 +57,16 @@ int			ft_define_type(char c)
 	if (value[i])
 		return (ft_exit(i, 1, value));
 	return (ft_exit(-1, 1, value));
+}
+
+void	ft_printchar_printstr(char c, int i, char *str, int j)
+{
+	ft_putchar_fd(c, i);
+	ft_putstr_fd(str, j);
+}
+
+void	ft_printstr_printchar(char c, int i, char *str, int j)
+{
+	ft_putstr_fd(str, i);
+	ft_putchar_fd(c, j);
 }
