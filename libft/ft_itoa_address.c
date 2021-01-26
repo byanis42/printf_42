@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yanboudr <yanboudr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/01 10:49:36 by thgermai          #+#    #+#             */
-/*   Updated: 2021/01/21 05:11:18 by yanboudr         ###   ########.fr       */
+/*   Created: 2021/01/26 04:10:55 by yanboudr          #+#    #+#             */
+/*   Updated: 2021/01/26 04:10:55 by yanboudr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char			*ft_itoa_address(unsigned long long int n)
 {
